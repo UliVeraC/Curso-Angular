@@ -2,12 +2,16 @@
 <hr />
 
 <section class="row">
-  <div class="col-12 col-sm-6"><dragonball-character-add /></div>
+  <div class="col-12 col-sm-6">
+    <dragonball-character-add
+      (newCharacter)="dragonballservice.addCharacter($event)"
+    />
+  </div>
 
   <div class="col-12 col-sm-6">
     <dragonball-caracter-list
       [listName]="['character']"
-      [characters]="characters()"
+      [characters]="dragonballservice.characters()"
     />
   </div>
 </section>
