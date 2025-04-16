@@ -14,16 +14,16 @@ interface character {
   templateUrl: './dragonball.component.html'
 })
 export class DragonballComponent {
-  name = signal('Gohan');
-  power = signal(100);
+  name = signal('');
+  power = signal(0);
 
 
 
   characters = signal<character[]>([
     { id: 1, name: "Goku", power: 9000 },
-    { id: 2, name: "Vegeta", power: 8000 },
-    { id: 3, name: "Piccolo", power: 6000 },
-    { id: 4, name: "Yamcha", power: 3000 },
+    // { id: 2, name: "Vegeta", power: 8000 },
+    // { id: 3, name: "Piccolo", power: 6000 },
+    // { id: 4, name: "Yamcha", power: 3000 },
   ]);
   addCharacter() {
     if (!this.name() || !this.power() || this.power() <= 0) {
