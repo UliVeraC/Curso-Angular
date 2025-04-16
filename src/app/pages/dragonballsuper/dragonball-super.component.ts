@@ -1,6 +1,6 @@
-import { NgClass } from '@angular/common';
-import { Component, signal, computed } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { CharacterListComponent } from "../../components/dragonball/character-list/character-list.component";
+import { CharacterAddComponent } from "../../components/dragonball/character-add/character-add.component";
 
 interface character {
   id: number,
@@ -9,22 +9,21 @@ interface character {
 }
 
 @Component({
-  selector: 'app-dragonball',
-  imports: [RouterLink, RouterLinkActive, NgClass],
-  templateUrl: './dragonball.component.html'
+  selector: 'app-dragonballsuper',
+  templateUrl: './dragonball-super.component.html',
+  imports: [CharacterListComponent, CharacterAddComponent]
 })
-export class DragonballComponent {
-  name = signal('Gohan');
-  power = signal(100);
+export class DragonballSuperComponent {
+  name = signal('');
+  power = signal(0);
 
 
 
   characters = signal<character[]>([
     { id: 1, name: "Goku", power: 9000 },
     { id: 2, name: "Vegeta", power: 8000 },
-    { id: 3, name: "Piccolo", power: 6000 },
-    { id: 4, name: "Yamcha", power: 3000 },
   ]);
+
   addCharacter() {
     if (!this.name() || !this.power() || this.power() <= 0) {
       return;
