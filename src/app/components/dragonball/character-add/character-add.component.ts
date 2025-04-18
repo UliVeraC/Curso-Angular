@@ -24,7 +24,7 @@ export class CharacterAddComponent {
 
     console.log(this.name(), this.power())
     const newCharacter: character = {
-      id: Math.floor(Math.random()),
+      id: Math.floor(Math.random() * 10000),
       name: this.name(),
       power: this.power(),
     };
